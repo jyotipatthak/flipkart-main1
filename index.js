@@ -14,7 +14,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: 'https://vercel.com/jyoti-pathaks-projects-3ad5b2b6/flipkart-main1-bv6l',
     credentials: true,
     optionsSuccessStatus: 200
 };

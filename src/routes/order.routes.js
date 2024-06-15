@@ -1,9 +1,57 @@
-// src/routes/order.routes.js
-
 import express from 'express';
 import { createOrder } from '../controllers/order.controller.js'; // Import the missing functions
 
 const orderRouter = express.Router();
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Address:
+ *       type: object
+ *       properties:
+ *         addressLine:
+ *           type: string
+ *         pincode:
+ *           type: number
+ *         city:
+ *           type: string
+ *         state:
+ *           type: string
+ *       required:
+ *         - addressLine
+ *         - pincode
+ *         - city
+ *         - state
+ *     Item:
+ *       type: object
+ *       properties:
+ *         product:
+ *           type: string
+ *         quantity:
+ *           type: number
+ *       required:
+ *         - product
+ *         - quantity
+ *     Order:
+ *       type: object
+ *       properties:
+ *         items:
+ *           type: array
+ *           items:
+ *             $ref: '#/components/schemas/Item'
+ *         address:
+ *           $ref: '#/components/schemas/Address'
+ *         paymentMethod:
+ *           type: string
+ *         totalAmount:
+ *           type: number
+ *       required:
+ *         - items
+ *         - address
+ *         - paymentMethod
+ *         - totalAmount
+ */
 
 /**
  * @swagger
@@ -16,37 +64,7 @@ const orderRouter = express.Router();
  *       content:
  *         application/json:
  *           schema:
- *             type: object
- *             properties:
- *               items:
- *                 type: array
- *                 items:
- *                   type: object
- *                   properties:
- *                     product:
- *                       type: string
- *                     quantity:
- *                       type: number
- *               address:
- *                 type: object
- *                 properties:
- *                   addressLine:
- *                     type: string
- *                   pincode:
- *                     type: number
- *                   city:
- *                     type: string
- *                   state:
- *                     type: string
- *               paymentMethod:
- *                 type: string
- *               totalAmount:
- *                 type: number
- *             required:
- *               - items
- *               - address
- *               - paymentMethod
- *               - totalAmount
+ *             $ref: '#/components/schemas/Order'
  *     responses:
  *       201:
  *         description: Order created successfully
@@ -54,7 +72,5 @@ const orderRouter = express.Router();
  *         description: Bad request
  */
 orderRouter.post("/", createOrder);
-
-
 
 export default orderRouter;

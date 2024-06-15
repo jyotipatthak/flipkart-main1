@@ -1,9 +1,33 @@
-// src/routes/product.routes.js
-
 import express from 'express';
 import { getAllProducts, getProductsByCategory } from '../controllers/product.controller.js';
 
 const productRouter = express.Router();
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Product:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: string
+ *         name:
+ *           type: string
+ *         category:
+ *           type: string
+ *         price:
+ *           type: number
+ *         description:
+ *           type: string
+ *         imageUrl:
+ *           type: string
+ *       required:
+ *         - id
+ *         - name
+ *         - category
+ *         - price
+ */
 
 /**
  * @swagger
@@ -14,6 +38,12 @@ const productRouter = express.Router();
  *     responses:
  *       200:
  *         description: Products retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Product'
  */
 productRouter.get('/', getAllProducts);
 
@@ -33,6 +63,12 @@ productRouter.get('/', getAllProducts);
  *     responses:
  *       200:
  *         description: Products retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Product'
  *       404:
  *         description: Category not found
  */

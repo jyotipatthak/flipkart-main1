@@ -20,8 +20,8 @@ connectDB();
 const corsOptions = {
   origin: [
     'http://localhost:5173',
-    'https://flipkart-main1.vercel.app',
-    'https://flipkart-main1-bv6l.vercel.app',
+    'https://flipkart-main1-1t8b.vercel.app',
+   
   ],
   credentials: true, // Allows sending cookies along with the request
   optionsSuccessStatus: 200, // Respond with 200 for preflight CORS requests

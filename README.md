@@ -116,7 +116,7 @@ This is a backend application for a shopping platform similar to Flipkart. The b
 
     ```bash
     git clone https://github.com/jyotipatthak/flipkart-main1
-    cd flipkart-main/backend
+    cd flipkart-main1/backend
     ```
 
 2. Install dependencies:
@@ -140,6 +140,15 @@ This is a backend application for a shopping platform similar to Flipkart. The b
     ```bash
     npm run dev
     ```
+
+## ✨`Deployment`
+
+**Link of gitgub page** : https://github.com/jyotipatthak/flipkart-main1
+
+**Link of flipkart  app video**: https://youtu.be/MKEkv8dHDyA?si=jMhwehTvKdMSc9ms
+
+**Web Deployed Link**: https://flipkart-main1.vercel.app/
+
 
 ## API Documentation
 

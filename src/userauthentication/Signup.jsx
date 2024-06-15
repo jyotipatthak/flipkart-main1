@@ -38,7 +38,7 @@ const SignUp = () => {
           <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
             <div className="mb-4">
               <h2 className="text-2xl tracking-wider text-left font-semibold mb-4">
-                Sign up
+                Register
               </h2>
             </div>
             <div className="mb-4">

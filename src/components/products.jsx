@@ -179,11 +179,11 @@ function Product() {
                   />
                   <div className="absolute top-2 left-2 mt-4 ml-4 flex gap-2">
                     <FaBookmark
-                      className={`text-2xl cursor-pointer ${bookmark[product.id] ? 'text-black' : 'text-red-500'}`}
+                      className={`text-2xl cursor-pointer ${bookmark[product.id] ? 'text-black' : 'text-gray-500'}`}
                       onClick={() => handleBookmark(product)}
                     />
                     <FaHeart
-                      className={`text-2xl cursor-pointer ${wishlist[product.id] ? 'text-black' : 'text-red-500'}`}
+                      className={`text-2xl cursor-pointer ${wishlist[product.id] ? 'text-black' : 'text-gray-500'}`}
                       onClick={() => handleWishlist(product)}
                     />
                   </div>

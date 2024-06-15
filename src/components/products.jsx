@@ -33,9 +33,9 @@ function Product() {
   const fetchProducts = async (category = null) => {
     try {
       setIsLoading(true);
-      let url = 'http://localhost:8000/api/products';
+      let url = 'https://flipkart-main1-1.onrender.com/api/products';
       if (category) {
-        url = `http://localhost:8000/api/products/category/${encodeURIComponent(category)}`;
+        url = `https://flipkart-main1-1.onrender.com/api/products/category/${encodeURIComponent(category)}`;
       }
       const res = await fetch(url);
       if (!res.ok) {
@@ -72,7 +72,7 @@ function Product() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch('http://localhost:8000/api/categories');
+        const res = await fetch('https://flipkart-main1-1.onrender.com/api/categories');
         if (!res.ok) {
           throw new Error('Network response was not ok');
         }

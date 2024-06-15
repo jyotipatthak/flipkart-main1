@@ -19,7 +19,7 @@ Cart Management: Users can view and manage the items in their cart before making
 ![shopNow ](./src/assets/shopNow.jpg)
 
 # products
-![products page](./src/assets/product.jpg)
+![products page](./src/assets/products.jpg)
 
 # Cart
 ![Cart](./src/assets/cart.jpg)
@@ -81,7 +81,7 @@ Cart Management: Users can view and manage the items in their cart before making
 
 **Link of gitgub page** : https://github.com/jyotipatthak/flipkart-main1
 
-**Link of flipkart  app video**: https://youtu.be/MKEkv8dHDyA?si=jMhwehTvKdMSc9ms
+**Link of flipkart  app video**:  https://youtu.be/uMvqKSRuKBE?si=shqMcybTREAYCES5
 
 **Web Deployed Link**: https://flipkart-main1.vercel.app/
 

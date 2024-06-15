@@ -20,25 +20,25 @@ const corsOptions = {
         'https://flipkart-main1.vercel.app',
         'https://flipkart-main1-bv6l.vercel.app'
     ],
-    credentials: true, // enable credentials (cookies, authorization headers) cross-origin
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    credentials: true, // Allows sending cookies along with the request
+    optionsSuccessStatus: 200 // Respond with 200 for preflight CORS requests
 };
 
 // Use CORS middleware with options
 app.use(cors(corsOptions));
 
 // Other middleware
-app.use(express.json());
-app.use(cookieParser());
+app.use(express.json()); // Parse JSON bodies in requests
+app.use(cookieParser()); // Parse cookies in requests
 
 // Connect to MongoDB
 connectDB();
 
 // Routes
-app.use('/api/user', userRouter);
-app.use('/api/orders', orderRouter);
-app.use('/api/categories', categoryRouter);
-app.use('/api/products', productRouter);
+app.use('/api/user', userRouter); // User routes
+app.use('/api/orders', orderRouter); // Order routes
+app.use('/api/categories', categoryRouter); // Category routes
+app.use('/api/products', productRouter); // Product routes
 
 // Swagger documentation setup
 swaggerDocs(app);
@@ -53,4 +53,3 @@ const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
 });
-

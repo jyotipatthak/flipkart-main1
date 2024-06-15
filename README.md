@@ -15,8 +15,7 @@ Cart Management: Users can view and manage the items in their cart before making
 # homepage
 ![category](./src/assets/filter.jpg)
 
-# Home page
-![shopNow ](./src/assets/shopNow.jpg)
+
 
 # products
 ![products page](./src/assets/products.jpg)

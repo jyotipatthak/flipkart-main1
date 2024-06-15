@@ -22,7 +22,7 @@ const Login = () => {
       Toast.success('User logged in successfully');
       navigate('/'); // Redirect to home page
     } catch (error) {
-      Toast.error(`Error in logging in the user: ${error.response.data.error}`);
+      Toast.error(`Error in logging in the user: ${error.response?.data?.error || 'Server Error'}`);
     }
   };
 

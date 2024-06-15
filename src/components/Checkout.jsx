@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -20,11 +20,12 @@ const Checkout = () => {
   // Retrieve authToken from cookies
   const authToken = Cookies.get('token');
 
-  // Calculate totalAmount based on cart
+  // Calculate total amount based on cart items
   const calculateTotalAmount = () => {
     return Object.values(cart).reduce((sum, item) => sum + item.product.price * item.quantity, 0);
   };
 
+  // Handle placing the order
   const handlePlaceOrder = async () => {
     const items = Object.keys(cart).map(productId => ({
       product: cart[productId].product.title, // Store product title in the 'product' field

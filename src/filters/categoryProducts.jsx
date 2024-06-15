@@ -15,28 +15,34 @@ const CategoryProducts = ({ category, onCategorySelect }) => {
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
 
+  // Handle image click to open modal with product details
   const handleImageClick = (product) => {
     setSelectedProduct(product);
     setIsModalOpen(true);
   };
 
+  // Handle closing the modal
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedProduct(null);
   };
 
+  // Handle adding a product to the cart
   const handleAddToCart = (product) => {
     dispatch(addItemToCart(product));
   };
 
+  // Handle removing a product from the cart
   const handleRemoveFromCart = (productId) => {
     dispatch(removeItemFromCart(productId));
   };
 
+  // Handle updating the quantity of a product in the cart
   const handleUpdateQuantityCart = (productId, quantity) => {
     dispatch(updateItemQuantityInCart(productId, quantity));
   };
 
+  // Fetch products based on the selected category
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/category/${category}`)
       .then(res => {
@@ -55,10 +61,12 @@ const CategoryProducts = ({ category, onCategorySelect }) => {
       });
   }, [category]);
 
+  // Handle navigating to the next set of products
   const handleNextProduct = () => {
     setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, products.length - 1));
   };
 
+  // Handle navigating to the previous set of products
   const handlePrevProduct = () => {
     setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
   };
@@ -66,6 +74,7 @@ const CategoryProducts = ({ category, onCategorySelect }) => {
   if (loading) return <div className="text-center text-lg">Loading...</div>;
   if (error) return <div className="text-center text-lg text-red-500">Error: {error.message}</div>;
 
+  // Select the current set of products to display
   const selectedProducts = products.slice(currentIndex, currentIndex + 4);
 
   return (
@@ -92,12 +101,15 @@ const CategoryProducts = ({ category, onCategorySelect }) => {
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {/* Render each selected product */}
         {selectedProducts.map(product => (
           <div key={product.id} className="border p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white">
-            <img src={product.image}
-             alt={product.title} 
-             onClick={() => handleImageClick(product)}
-             className="w-full h-48 object-cover mb-4 rounded-lg cursor-pointer" />
+            <img 
+              src={product.image}
+              alt={product.title} 
+              onClick={() => handleImageClick(product)}
+              className="w-full h-48 object-cover mb-4 rounded-lg cursor-pointer" 
+            />
             <h2 className="text-lg font-semibold mb-2 text-gray-800">{product.title}</h2>
             <div className="flex gap-8">
               <p className="text-xl font-bold text-indigo-600">${product.price}</p>
@@ -147,6 +159,7 @@ const CategoryProducts = ({ category, onCategorySelect }) => {
           </div>
         ))}
       </div>
+      {/* Modal for displaying product details */}
       {isModalOpen && <ProductModal product={selectedProduct} onClose={handleCloseModal} />}
     </div>
   );

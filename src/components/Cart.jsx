@@ -10,14 +10,17 @@ function Cart() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // Handle item removal from cart
   const handleRemoveFromCart = (productId) => {
     dispatch(removeItemFromCart(productId));
   };
 
+  // Handle updating item quantity in cart
   const handleUpdateQuantityCart = (productId, quantity) => {
     dispatch(updateItemQuantityInCart(productId, quantity));
   };
 
+  // Calculate the total price of items in the cart
   const totalPrice = Object.values(cart).reduce((acc, item) => {
     const product = item.product;
     if (product) {
@@ -26,6 +29,7 @@ function Cart() {
     return acc;
   }, 0);
 
+  // Handle checkout process
   const handleCheckout = () => {
     if (isAuthenticated) {
       navigate('/checkout');

@@ -11,6 +11,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({ email: '', password: '' });
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -19,12 +20,13 @@ const Login = () => {
       Cookies.set('token', token); // Save token in cookies
       dispatch(login(token)); // Update Redux state
       Toast.success('User logged in successfully');
-      navigate('/');
+      navigate('/'); // Redirect to home page
     } catch (error) {
       Toast.error(`Error in logging in the user: ${error.response.data.error}`);
     }
   };
 
+  // Handle input change
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });

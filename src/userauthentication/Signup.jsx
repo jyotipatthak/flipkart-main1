@@ -7,17 +7,19 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await axios.post('http://localhost:8000/api/user/register', formData, { withCredentials: true });
       Toast.success('User registered successfully');
-      navigate('/login');
+      navigate('/login'); // Redirect to login page
     } catch (error) {
       Toast.error(`Error in registering the user: ${error.response?.data?.error}`);
     }
   };
 
+  // Handle input change
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });

@@ -13,6 +13,7 @@ const ProductModal = ({ product, onClose }) => {
   // Generate a random discount between 5% and 30%
   const discount = Math.floor(Math.random() * 26) + 5;
 
+  // Handle bookmarking a product
   const handleBookmark = (product) => {
     if (bookmark[product.id]) {
       dispatch(removeFromBookmark(product.id));
@@ -21,6 +22,7 @@ const ProductModal = ({ product, onClose }) => {
     }
   };
 
+  // Handle adding/removing a product to/from wishlist
   const handleWishlist = (product) => {
     if (wishlist[product.id]) {
       dispatch(removeFromWishlist(product.id));
@@ -32,27 +34,34 @@ const ProductModal = ({ product, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md">
       <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-3/4 lg:w-1/2 max-h-screen overflow-y-auto relative">
+        {/* Close button */}
         <button onClick={onClose} className="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
           <FaTimes size={24} />
         </button>
 
         <div className="flex flex-col md:flex-row items-center md:items-start">
+          {/* Product image */}
           <img
             className="h-64 w-full md:w-1/2 rounded object-contain mb-4 md:mb-0"
             src={product.image}
             alt={product.title}
           />
           <div className="md:ml-6 flex flex-col w-full md:w-1/2">
+            {/* Product title */}
             <h3 className="text-2xl font-bold mb-2 text-center md:text-left">{product.title}</h3>
+            {/* Product price */}
             <p className="text-xl font-semibold mb-4 text-center md:text-left">Price: ${product.price}</p>
+            {/* Product description */}
             <p className="text-sm mb-4 text-center md:text-left">{product.description}</p>
             <div className="flex justify-center md:justify-start space-x-4 mb-4">
+              {/* Wishlist button */}
               <button
                 className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full flex items-center"
                 onClick={() => handleWishlist(product)}
               >
                 <FaHeart className="mr-2" /> Wishlist
               </button>
+              {/* Bookmark button */}
               <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full flex items-center"
                 onClick={() => handleBookmark(product)}
@@ -60,6 +69,7 @@ const ProductModal = ({ product, onClose }) => {
                 <FaBookmark className="mr-2" /> Bookmark
               </button>
             </div>
+            {/* Display the generated discount */}
             <p className="text-center md:text-left text-lg text-red-600 font-bold">Discount: {discount}% off</p>
           </div>
         </div>

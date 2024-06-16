@@ -21,7 +21,8 @@ const corsOptions = {
   origin: [
     'http://localhost:5173',
     'https://flipkart-main1-1t8b.vercel.app',
-    'https://flipkart-main1-1.onrender.com'
+    'https://flipkart-main1.onrender.com'
+   
   ],
   credentials: true, // Allows sending cookies along with the request
   optionsSuccessStatus: 200, // Respond with 200 for preflight CORS requests
@@ -34,14 +35,14 @@ app.use(cors(corsOptions));
 app.use(express.json()); // Parse JSON bodies in requests
 app.use(cookieParser()); // Parse cookies in requests
 
-// Swagger documentation setup
-swaggerDocs(app);
-
 // Routes
 app.use('/api/user', userRouter); // User routes
 app.use('/api/orders', orderRouter); // Order routes
 app.use('/api/categories', categoryRouter); // Category routes
 app.use('/api/products', productRouter); // Product routes
+
+// Swagger documentation setup
+swaggerDocs(app);
 
 // Test route
 app.get('/', (req, res) => {

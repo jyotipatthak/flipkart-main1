@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { PiShoppingCartFill } from "react-icons/pi";
-import { FaBars, FaTimes, FaHeart, FaBookmark } from 'react-icons/fa';
+import { FaBars, FaTimes, FaHeart, FaBookmark  } from 'react-icons/fa';
+import { BsBookmarkPlusFill,BsChatLeftHeartFill } from "react-icons/bs";
 import Search from '../ui/Searchbar';
 import { Link } from 'react-router-dom';
 import { logout } from '../redux/actions';
@@ -45,14 +46,14 @@ const Navbar = () => {
             <Search className="mx-4" />
           </div>
         </div>
-        <div className="flex items-center gap-4 md:gap-8">
-          <Link to="/wishlist" className="hidden md:flex hover:text-blue-600">
-            <FaHeart className="text-2xl" />
+        <div className="hidden md:flex items-center gap-4 md:gap-8">
+          <Link to="/wishlist" className="hover:text-blue-600">
+            <BsChatLeftHeartFill className="text-2xl" />
           </Link>
-          <Link to="/bookmark" className="hidden md:flex hover:text-blue-600">
-            <FaBookmark className="text-2xl" />
+          <Link to="/bookmark" className="hover:text-blue-600">
+          <BsBookmarkPlusFill className="text-2xl" />
           </Link>
-          <div className="relative hidden md:flex items-center">
+          <div className="relative flex items-center">
             <Link to="/cart" className='flex items-center hover:text-blue-700 relative'>
               <PiShoppingCartFill className='h-8 w-8 text-black' />
               {totalItems > 0 && (
@@ -64,7 +65,7 @@ const Navbar = () => {
           </div>
           {isAuthenticated ? (
             <>
-              <div className="relative hidden md:flex items-center">
+              <div className="relative flex items-center">
                 <button
                   onClick={() => setIsUserProfileOpen(true)}
                   className="hover:bg-blue-700 hover:text-white rounded-full p-2"
@@ -76,18 +77,13 @@ const Navbar = () => {
                 onClick={handleLogout}
                 className="py-2 px-4 text-md text-white bg-blue-700 hover:bg-blue-700 hover:text-white rounded flex items-center gap-2"
               >
-                {/* <img
-                  // src='https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/profile-52e0dc.svg'
-                  alt="Profile Icon"
-                  className="h-8 w-8"
-                /> */}
                 Logout
               </button>
             </>
           ) : (
             <Link
               to="/login"
-              className="hidden md:flex py-1 px-4 text-md text-blue-950 hover:bg-blue-700 hover:text-white rounded  items-center gap-2"
+              className="py-1 px-4 text-md text-blue-950 hover:bg-blue-700 hover:text-white rounded items-center gap-2"
             >
               <img
                 src='https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/profile-52e0dc.svg'
@@ -98,58 +94,55 @@ const Navbar = () => {
             </Link>
           )}
         </div>
-        <div className={`flex flex-col md:flex-row md:gap-8 ${isMenuOpen ? 'flex' : 'hidden'} md:hidden items-center bg-white md:bg-transparent absolute md:static top-16 md:top-auto left-0 w-full md:w-auto shadow-md md:shadow-none p-4 md:p-0`}>
-          <Link to="/wishlist" className="hover:text-blue-600">
-            <FaHeart className="text-2xl" />
-          </Link>
-          <Link to="/bookmark" className="hover:text-blue-600">
-            <FaBookmark className="text-2xl" />
-          </Link>
-          <div className="relative flex items-center">
-            <Link to="/cart" className='flex items-center hover:text-blue-700 relative'>
-              <PiShoppingCartFill className='h-8 w-8 text-black' />
-              {totalItems > 0 && (
-                <span className='absolute top-0 right-0 text-red-700 rounded-full text-lg p-1'  >
-                  {totalItems}
-                </span>
-              )}
+        <div className={`flex flex-col md:hidden ${isMenuOpen ? 'flex' : 'hidden'} items-center bg-white absolute top-16 left-0 w-full shadow-md p-4`}>
+          <div className="flex flex-row items-center justify-around w-full">
+            <Link to="/wishlist" className="hover:text-blue-600 mx-2">
+              <FaHeart className="text-2xl" />
             </Link>
-          </div>
-          {isAuthenticated ? (
-            <>
-              <button
-                onClick={handleLogout}
-                className="py-2 px-4 text-md text-blue-950 hover:bg-blue-700 hover:text-white rounded flex items-center gap-2"
+            <Link to="/bookmark" className="hover:text-blue-600 mx-2">
+              <FaBookmark className="text-2xl" />
+            </Link>
+            <div className="relative flex items-center mx-2">
+              <Link to="/cart" className='flex items-center hover:text-blue-700 relative'>
+                <PiShoppingCartFill className='h-8 w-8 text-black' />
+                {totalItems > 0 && (
+                  <span className='absolute top-0 right-0 text-red-700 rounded-full text-lg p-1'>
+                    {totalItems}
+                  </span>
+                )}
+              </Link>
+            </div>
+            {isAuthenticated ? (
+              <>
+                <div className="relative flex items-center mx-2">
+                  <button
+                    onClick={() => setIsUserProfileOpen(true)}
+                    className="hover:bg-blue-700 hover:text-white rounded-full p-2"
+                  >
+                    <VscAccount className="h-6 w-6 text-black" />
+                  </button>
+                </div>
+                <button
+                  onClick={handleLogout}
+                  className="py-2 px-4 text-md text-blue-950 hover:bg-blue-700 hover:text-white rounded flex items-center gap-2 mx-2"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link
+                to="/login"
+                className="py-1 px-4 text-md text-blue-950 hover:bg-blue-700 hover:text-white rounded flex items-center gap-2 mx-2"
               >
                 <img
                   src='https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/profile-52e0dc.svg'
                   alt="Profile Icon"
                   className="h-8 w-8"
                 />
-                Logout
-              </button>
-              <div className="relative flex items-center">
-                <button
-                  onClick={() => setIsUserProfileOpen(true)}
-                  className="hover:bg-blue-700 hover:text-white rounded-full p-2"
-                >
-                  <VscAccount className="h-6 w-6 text-black" />
-                </button>
-              </div>
-            </>
-          ) : (
-            <Link
-              to="/login"
-              className="py-1 px-4 text-md text-blue-950 hover:bg-blue-700 hover:text-white rounded flex items-center gap-2"
-            >
-              <img
-                src='https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/profile-52e0dc.svg'
-                alt="Profile Icon"
-                className="h-8 w-8"
-              />
-              Login
-            </Link>
-          )}
+                Login
+              </Link>
+            )}
+          </div>
         </div>
       </div>
       {isUserProfileOpen && isAuthenticated && <UserProfile onClose={() => setIsUserProfileOpen(false)} />}

@@ -114,9 +114,7 @@ function Product() {
   };
 
   const handleAddToCart = (product) => {
-    // console.log(cart)
     dispatch(addItemToCart(product));
-    // console.log()
   };
 
   const handleRemoveFromCart = (productId) => {
@@ -139,26 +137,32 @@ function Product() {
     }
   };
 
+  const handleButtonColorChange = (productId) => {
+    // Logic to change button color
+    console.log(`Button clicked for product ${productId}`);
+    // You can implement state logic or dispatch an action here to change button color
+  };
+
   return (
     <div className="min-h-screen flex flex-col mt-4">
       <nav className="w-full bg-slate-400 text-white p-4 flex flex-col md:flex-row items-center justify-between rounded-lg">
-        <div className="flex items-center space-x-4">
-          <div className="flex gap-2">
-            {categories.map((category, index) => (
-              <p
-                key={index}
-                className={`text-sm font-bold cursor-pointer px-4 py-1 rounded-lg transition-colors ${
-                  category === selectedCategory ? 'bg-[#1a2259] text-white' : 'bg-white text-blue-700 hover:bg-blue-200'
-                }`}
-                onClick={() => handleCategoryClick(category.name)}
-              >
-                {category.name}
-              </p>
-            ))}
-          </div>
+        <div className="flex flex-wrap gap-2">
+          {categories.map((category, index) => (
+            <p
+              key={index}
+              className={`text-sm font-bold cursor-pointer px-4 py-1 rounded-lg transition-colors ${
+                category.name === selectedCategory ? 'bg-[#1a2259] text-white' : 'bg-white text-blue-700 hover:bg-blue-200'
+              }`}
+              onClick={() => handleCategoryClick(category.name)}
+            >
+              {category.name}
+            </p>
+          ))}
         </div>
-        <div className="flex flex-col md:flex-row w-full ml-12 items-center space-y-2 md:space-y-0 md:space-x-4 mt-4 md:mt-0">
-          <Search onSearch={handleSearch} />
+        <div className="flex flex-col md:flex-row w-full md:w-auto ml-0 md:ml-12 items-center space-y-2 md:space-y-0 md:space-x-4 mt-4 md:mt-0">
+          <div className="w-full md:w-96">
+            <Search onSearch={handleSearch} />
+          </div>
           <PriceFilter onFilter={handlePriceFilter} />
         </div>
       </nav>
@@ -199,15 +203,17 @@ function Product() {
                     </div>
                     {product.id in cart ? (
                       <button
-                        className="bg-blue-900 text-white px-4 py-1 rounded-lg font-bold text-sm hover:bg-blue-900 transition"
+                        className={`bg-blue-900 text-white px-4 py-1 rounded-lg font-bold text-sm hover:bg-blue-900 transition`}
                         onClick={() => handleRemoveFromCart(product.id)}
+                        onMouseEnter={() => handleButtonColorChange(product.id)}
                       >
                         Remove Item
                       </button>
                     ) : (
                       <button
-                        className="bg-indigo-700 text-white px-4 py-1 font-bold text-sm rounded-lg hover:bg-indigo-900 transition"
+                        className={`bg-indigo-700 text-white px-4 py-1 font-bold text-sm rounded-lg hover:bg-indigo-900 transition`}
                         onClick={() => handleAddToCart(product)}
+                        onMouseEnter={() => handleButtonColorChange(product.id)}
                       >
                         Add to Cart
                       </button>

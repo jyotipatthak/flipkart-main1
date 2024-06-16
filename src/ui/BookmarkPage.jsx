@@ -28,7 +28,7 @@ function BookmarkPage() {
   };
 
   return (
-    <div className="bg-gray-50 text-gray-800 min-h-screen p-8 sm:p-12 xl:p-20">
+    <div className="bg-gray-50 text-gray-800 min-h-screen px-8 mt-20 ">
       <h2 className="text-4xl font-extrabold mb-12 text-center text-gray-900 sm:mt-12">
         Bookmarks
       </h2>

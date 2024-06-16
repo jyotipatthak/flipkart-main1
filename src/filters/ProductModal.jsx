@@ -13,9 +13,13 @@ const ProductModal = ({ product, onClose }) => {
   // Generate a random discount between 5% and 30%
   const discount = Math.floor(Math.random() * 26) + 5;
 
+  // Check if product is in wishlist or bookmark
+  const isInWishlist = wishlist[product.id];
+  const isInBookmark = bookmark[product.id];
+
   // Handle bookmarking a product
   const handleBookmark = (product) => {
-    if (bookmark[product.id]) {
+    if (isInBookmark) {
       dispatch(removeFromBookmark(product.id));
     } else {
       dispatch(addToBookmark(product));
@@ -24,7 +28,7 @@ const ProductModal = ({ product, onClose }) => {
 
   // Handle adding/removing a product to/from wishlist
   const handleWishlist = (product) => {
-    if (wishlist[product.id]) {
+    if (isInWishlist) {
       dispatch(removeFromWishlist(product.id));
     } else {
       dispatch(addToWishlist(product));
@@ -56,21 +60,41 @@ const ProductModal = ({ product, onClose }) => {
             <div className="flex justify-center md:justify-start space-x-4 mb-4">
               {/* Wishlist button */}
               <button
-                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full flex items-center"
+                className={`bg-gray-800  text-white font-bold py-2 px-4 rounded-full flex items-center ${
+                  isInWishlist ? 'bg-green-500' : ''
+                }`}
                 onClick={() => handleWishlist(product)}
               >
-                <FaHeart className="mr-2" /> Wishlist
+                {isInWishlist ? (
+                  <>
+                    <FaHeart className="mr-2" /> Wishlisted
+                  </>
+                ) : (
+                  <>
+                    <FaHeart className="mr-2" /> Wishlist
+                  </>
+                )}
               </button>
               {/* Bookmark button */}
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full flex items-center"
+                className={`bg-blue-700  text-white font-bold py-2 px-4 rounded-full flex items-center ${
+                  isInBookmark ? 'bg-yellow-500' : ''
+                }`}
                 onClick={() => handleBookmark(product)}
               >
-                <FaBookmark className="mr-2" /> Bookmark
+                {isInBookmark ? (
+                  <>
+                    <FaBookmark className="mr-2" /> Bookmarked
+                  </>
+                ) : (
+                  <>
+                    <FaBookmark className="mr-2" /> Bookmark
+                  </>
+                )}
               </button>
             </div>
             {/* Display the generated discount */}
-            <p className="text-center md:text-left text-lg text-red-600 font-bold">Discount: {discount}% off</p>
+            <p className="text-center md:text-left text-lg text-red-900 font-bold">Discount: {discount}% off</p>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ import Navbar from './components/Navbar';
 import Checkout from './components/Checkout';
 import OrderSuccess from './ui/OrderSuccess';
 import UserProfile from './ui/profile';
-import Wishlist from './components/Wishlist';
+import Wishlist from './ui/Wishlist';
 import BookmarkPage from './ui/BookmarkPage';
 
 function App() {

@@ -6,7 +6,7 @@ import { FaLinkedin } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-      <footer className="text-sm py-8 px-10 bg-slate-950 w-full">
+      <footer className="text-sm py-8 px-10 bg-gray-600 w-full">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap -mx-8">
             <div className="w-full md:w-1/4 px-4 mb-8 md:mb-0">

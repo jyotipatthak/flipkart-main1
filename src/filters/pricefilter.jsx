@@ -49,7 +49,7 @@ const PriceFilter = ({ onFilter }) => {
           step={10}
           value={[minPrice, maxPrice]}
           onChange={handleSliderChange}
-          trackStyle={[{ backgroundColor: '#000000' }]}
+          trackStyle={[{ backgroundColor: '#ffffff' }]}
           handleStyle={[
             { borderColor: '#2563eb', backgroundColor: '#2563eb' },
             { borderColor: '#2563eb', backgroundColor: '#2563eb' }

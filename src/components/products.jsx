@@ -72,7 +72,7 @@ function Product() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch('https://flipkart-main1-1.onrender.com/api/categories');
+        const res = await fetch('https://flipkart-main1.onrender.com/api/categories');
         if (!res.ok) {
           throw new Error('Network response was not ok');
         }

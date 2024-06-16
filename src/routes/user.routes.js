@@ -1,6 +1,8 @@
-import express from 'express';
-import { login, register, logout, deleteUser } from '../controllers/user.controller.js';
-import { authentication } from '../middlewares/user.middleware.js';
+// src/routes/user.routes.js
+
+import express from "express";
+import { login, register, logout, deleteUser } from "../controllers/user.controller.js";
+import { authentication } from "../middlewares/user.middleware.js"; 
 
 const userRouter = express.Router();
 
@@ -51,7 +53,7 @@ const userRouter = express.Router();
  *       500:
  *         description: Some server error
  */
-userRouter.post('/register', register);
+userRouter.post("/register", register);
 
 /**
  * @swagger
@@ -78,10 +80,7 @@ userRouter.post('/register', register);
  *       500:
  *         description: Some server error
  */
-userRouter.post('/login', (req, res) => {
-  console.log('Login endpoint hit');
-  login(req, res);
-});
+userRouter.post("/login", login);
 
 /**
  * @swagger
@@ -95,7 +94,7 @@ userRouter.post('/login', (req, res) => {
  *       500:
  *         description: Some server error
  */
-userRouter.post('/logout', logout);
+userRouter.post("/logout", logout);
 
 /**
  * @swagger
@@ -116,6 +115,6 @@ userRouter.post('/logout', logout);
  *       500:
  *         description: Some server error
  */
-userRouter.delete('/:id', authentication, deleteUser);
+userRouter.delete("/:id", authentication, deleteUser);
 
 export default userRouter;

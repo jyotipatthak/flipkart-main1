@@ -80,7 +80,7 @@ Cart Management: Users can view and manage the items in their cart before making
 
 **Link of gitgub page** : https://github.com/jyotipatthak/flipkart-main1
 
-**Link of flipkart  app video**:  https://youtu.be/uMvqKSRuKBE?si=shqMcybTREAYCES5
+**Link of flipkart  app video**:  https://www.youtube.com/watch?v=9bF0niihsNI
 
 **Web Deployed Link**: https://flipkart-main1.vercel.app/
 
@@ -145,7 +145,7 @@ This is a backend application for a shopping platform similar to Flipkart. The b
 
 **Link of gitgub page** : https://github.com/jyotipatthak/flipkart-main1
 
-**Link of flipkart  app video**: https://youtu.be/uMvqKSRuKBE?si=shqMcybTREAYCES5
+**Link of flipkart  app video**: https://www.youtube.com/watch?v=9bF0niihsNI
 
 **Web Deployed Link**: https://flipkart-main1.vercel.app/
 

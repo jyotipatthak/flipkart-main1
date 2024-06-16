@@ -21,6 +21,7 @@ const corsOptions = {
   origin: [
     'http://localhost:5173',
     'https://flipkart-main1-1t8b.vercel.app',
+    'https://flipkart-main1-1.onrender.com'
    
   ],
   credentials: true, // Allows sending cookies along with the request

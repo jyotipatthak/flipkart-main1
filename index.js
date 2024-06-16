@@ -20,7 +20,7 @@ connectDB();
 const corsOptions = {
   origin: [
     'http://localhost:5173',
-    'https://flipkart-main1.vercel.app/',
+    
    
   ],
   credentials: true, // Allows sending cookies along with the request

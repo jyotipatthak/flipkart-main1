@@ -132,7 +132,7 @@ const Navbar = () => {
             ) : (
               <Link
                 to="/login"
-                className="py-1 px-4 text-md text-blue-950 hover:bg-blue-700 hover:text-white rounded flex items-center gap-2 mx-2"
+                className="px-4 text-md text-blue-950 hover:bg-blue-700 hover:text-white rounded flex items-center gap-2 mx-2"
               >
                 <img
                   src='https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/profile-52e0dc.svg'

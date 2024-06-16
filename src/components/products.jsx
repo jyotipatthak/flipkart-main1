@@ -33,9 +33,9 @@ function Product() {
   const fetchProducts = async (category = null) => {
     try {
       setIsLoading(true);
-      let url = 'https://flipkart-main1-1.onrender.com/api/products';
+      let url = 'https://flipkart-main1.onrender.com/api/products';
       if (category) {
-        url = `https://flipkart-main1-1.onrender.com/api/products/category/${encodeURIComponent(category)}`;
+        url = `https://flipkart-main1.onrender.com/api/products/category/${encodeURIComponent(category)}`;
       }
       const res = await fetch(url);
       if (!res.ok) {

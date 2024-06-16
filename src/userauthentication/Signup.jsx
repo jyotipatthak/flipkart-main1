@@ -11,7 +11,7 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://flipkart-main1-1.onrender.com/api/user/register', formData, { withCredentials: true });
+      await axios.post('https://flipkart-main1.onrender.com/api/user/register', formData, { withCredentials: true });
       Toast.success('User registered successfully');
       navigate('/login'); // Redirect to login page
     } catch (error) {

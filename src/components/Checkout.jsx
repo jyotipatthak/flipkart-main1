@@ -51,7 +51,7 @@ const Checkout = () => {
         return;
       }
 
-      const response = await axios.post('https://flipkart-main1-1.onrender.com/api/orders', order, { headers: { Authorization: `Bearer ${authToken}` } });
+      const response = await axios.post('https://flipkart-main1.onrender.com/api/orders', order, { headers: { Authorization: `Bearer ${authToken}` } });
 
       // Check if response is successful
       if (response.status === 201) {

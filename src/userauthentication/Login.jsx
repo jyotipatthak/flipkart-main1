@@ -15,7 +15,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://flipkart-main1-1.onrender.com/api/user/login', formData);
+      const response = await axios.post('https://flipkart-main1.onrender.com/api/user/login', formData);
       const { token } = response.data;
       Cookies.set('token', token); // Save token in cookies
       dispatch(login(token)); // Update Redux state

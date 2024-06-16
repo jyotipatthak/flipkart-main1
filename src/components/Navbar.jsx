@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { PiShoppingCartFill } from "react-icons/pi";
-import { FaBars, FaTimes, FaHeart, FaBookmark  } from 'react-icons/fa';
-import { BsBookmarkPlusFill,BsChatLeftHeartFill } from "react-icons/bs";
+import { FaBars, FaTimes, FaHeart, FaBookmark } from 'react-icons/fa';
+import { BsBookmarkPlusFill, BsChatLeftHeartFill } from "react-icons/bs";
 import Search from '../ui/Searchbar';
 import { Link } from 'react-router-dom';
 import { logout } from '../redux/actions';
@@ -51,7 +51,7 @@ const Navbar = () => {
             <BsChatLeftHeartFill className="text-2xl" />
           </Link>
           <Link to="/bookmark" className="hover:text-blue-600">
-          <BsBookmarkPlusFill className="text-2xl" />
+            <BsBookmarkPlusFill className="text-2xl" />
           </Link>
           <div className="relative flex items-center">
             <Link to="/cart" className='flex items-center hover:text-blue-700 relative'>
@@ -83,14 +83,14 @@ const Navbar = () => {
           ) : (
             <Link
               to="/login"
-              className="py-1 px-4 text-md text-blue-950 hover:bg-blue-700 hover:text-white rounded items-center gap-2"
+              className="py-2 px-4 text-md text-white bg-blue-700 hover:bg-blue-700 hover:text-white rounded flex items-center gap-2"
             >
               <img
                 src='https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/profile-52e0dc.svg'
                 alt="Profile Icon"
                 className="h-8 w-8"
               />
-              Login
+              <span className="ml-2">Login</span>
             </Link>
           )}
         </div>
@@ -139,7 +139,7 @@ const Navbar = () => {
                   alt="Profile Icon"
                   className="h-8 w-8"
                 />
-                Login
+                <span className="ml-2">Login</span>
               </Link>
             )}
           </div>

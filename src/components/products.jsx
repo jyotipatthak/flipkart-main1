@@ -138,9 +138,9 @@ function Product() {
   };
 
   const handleButtonColorChange = (productId) => {
-    // Logic to change button color
+    
     console.log(`Button clicked for product ${productId}`);
-    // You can implement state logic or dispatch an action here to change button color
+    
   };
 
   return (
